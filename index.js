@@ -31,4 +31,13 @@ db.sequelize.sync()
         }
     });
 
-    
+    app.get('/buku', async (req, res) => {
+        try {
+            const buku = await db.buku.findAll();
+            res.send(buku);
+        }catch (err) {
+            res.send(err);
+        }
+    });
+
+   
